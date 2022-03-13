@@ -39,11 +39,7 @@
     </q-drawer>
 
 
-    <q-footer elevated>
-        <q-toolbar>
-          <q-toolbar-title>Footer</q-toolbar-title>
-        </q-toolbar>
-      </q-footer>
+   
 
 
     <q-page-container>
@@ -67,6 +63,12 @@ const linksList = [
     caption: 'Crea task',
     icon: 'add',
     to: '/create'
+  },
+  {
+title: 'Task modificati',
+caption: 'Task con modifiche',
+icon: 'edit',
+to: '/changes-tasks'
   },
   {
     title: 'View tasks',

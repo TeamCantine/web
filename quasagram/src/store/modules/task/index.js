@@ -8,6 +8,8 @@ export default {
     state() {
         return {
             tasks: null,
+            tasksRow: null,
+            asUsers: null
         };
     },
     mutations,

@@ -18,6 +18,11 @@ const routes = [{
                     import ('pages/create-task')
             },
             {
+                path: 'changes-tasks',
+                component: () =>
+                    import ('pages/changes-task')
+            },
+            {
                 path: 'view-tasks',
                 component: () =>
                     import ('pages/view-tasks')
