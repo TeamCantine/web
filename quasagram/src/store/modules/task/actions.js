@@ -1,7 +1,12 @@
 export default {
-    async getTasks(context, tabname) {
 
-        const response = await fetch("http://localhost:3000/files?name=" + tabname, {
+
+
+
+    async getTasks(context, tabname) {
+        const serverIp = "10.100.0.30"
+
+        const response = await fetch("http://" + serverIp + ":3000/files?name=" + tabname, {
             method: "GET",
             cache: "no-cache",
             credentials: "same-origin",
@@ -36,8 +41,9 @@ export default {
     },
 
     async getAsUsers(context) {
+        const serverIp = "10.100.0.30"
 
-        const response = await fetch("http://localhost:3000/files/asusers", {
+        const response = await fetch("http://" + serverIp + ":3000/files/asusers", {
             method: "GET",
             cache: "no-cache",
             credentials: "same-origin",
@@ -69,7 +75,8 @@ export default {
 
 
     async addTaskHead(_, payload) {
-        let url = "http://localhost:3000/files/insertHead";
+        const serverIp = "10.100.0.30"
+        let url = "http://" + serverIp + ":3000/files/insertHead";
         console.log("From action:")
          console.log(payload);
 
@@ -104,7 +111,8 @@ export default {
 
   
     async addTaskRow(_, payload) {
-        let url = "http://localhost:3000/files/insertRow";
+        const serverIp = "10.100.0.30"
+        let url = "http://" + serverIp + ":3000/files/insertRow";
         console.log("From action:")
          console.log(payload);
 
@@ -141,7 +149,8 @@ export default {
 
 
     async deleteTaskHead(_, payload) {
-        let url = "http://localhost:3000/files/deleteTaskHead";
+        const serverIp = "10.100.0.30"
+        let url = "http://" + serverIp + ":3000/files/deleteTaskHead";
         //  console.log(payload)
 
         const response = await fetch(url, {
@@ -171,7 +180,8 @@ export default {
 
 
     async deleteTaskRow(_, payload){
-        let url = "http://localhost:3000/files/deleteTaskRow";
+        const serverIp = "10.100.0.30"
+        let url = "http://" + serverIp + ":3000/files/deleteTaskRow";
         //  console.log(payload)
 
         const response = await fetch(url, {

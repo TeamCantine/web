@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 
     next();
 });
-console.log("Cioa")
+console.log("Server running on port 3000")
     // just go to the ather file if you pass me ...
 
     
