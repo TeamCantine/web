@@ -91,7 +91,7 @@
               size="md"
               class="q-mr-md"
               dense
-              @click="insertRow(props.row.ID)"
+              @click="insertRow(props.row.ID,props.row.OPERATOR)"
               round
               color="primary"
               icon="add"
@@ -282,6 +282,7 @@ export default {
       loading: false,
       loadingRows: false,
       lastTaskHeadIdBackUp: null,
+      lastOperatore: null,
       cantina,
       tipoOp,
       operator,
@@ -382,9 +383,10 @@ export default {
       alert(e);
     },
 
-    insertRow(taskHeadId) {
+    insertRow(taskHeadId,operatore) {
       this.confirm = true;
       this.lastTaskHeadIdBackUp = taskHeadId;
+      this.lastOperatore = operatore
     },
 
     deleteBtnHead(taskId) {
@@ -623,9 +625,12 @@ export default {
 
     sendMessageTelegram(headId) {
       var userArray = this.usersAsJson.filter(
-        (i) => i.AS_USER === this.operator
+        (i) => i.AS_USER === this.lastOperatore
       );
       const idUserTelegram = userArray[0].BOT_ID;
+      console.log("USER TELEGRAM")
+      console.log(idUserTelegram)
+      console.log("USER TELEGRAM")
       const botToken = "5174941088:AAEFuzWWNKPwyyJQ_M53WlxRhoWrKVgsPXM"
       // non la mia
       const botToken_2 = "5122590653:AAHxT90EEDOOQoNupWdhGPmRPQ9WYNC7Zj4";
@@ -634,7 +639,7 @@ export default {
         botToken +
         "/sendMessage?chat_id=" +
         idUserTelegram +
-        "&text=Nuovo lavoro da fare per te! 😂 😂 😂 . \n Vai alla lista dei To Do Task per vedere il task: " +
+        "&text=Nuovo lavoro da fare per te! 😂 😂 \n Vai alla lista dei To Do Task per vedere il task: " +
         headId + " Tipo riga: " + tipoRiga.value + " Vaso: " + vaso.value + " Quantità: " + quantita.value;
 
       console.log(urlToSend);
@@ -669,7 +674,7 @@ export default {
   height: 45px
 
 .my-sticky-header-table
-  height: 310px
+  height: 290px
 
   .q-table__top,
   thead tr:first-child th
